@@ -133,4 +133,4 @@ dist
 package-lock.json
 
 # MAC OS Generated files
-**/.DS_Store
+.DS_Store
