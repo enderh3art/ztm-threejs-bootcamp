@@ -19,14 +19,14 @@ cd ~/projects
 4. Clone the repository with the following command:
 
 ``` bash 
-git clone https://github.com/enderh3art/ztm-student-files.git
+git clone https://github.com/enderh3art/ztm-threejs-bootcamp.git
 ```
 
-This will create a directory named `ztm-student-files` with all the repository content in it.
+This will create a directory named `ztm-threejs-bootcamp` with all the repository content in it.
 
 5. Navigate into the directory:
 ``` bash 
-cd ztm-student-files
+cd ztm-threejs-bootcamp
 ```
 
 6. Now, navigate into any lesson directory you want to use (substituting "7_camera_and_renderloop/camera_and_renderloop_starter" with the folder name for the lesson):
