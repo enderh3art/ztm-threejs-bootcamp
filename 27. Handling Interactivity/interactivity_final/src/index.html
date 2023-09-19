@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+	<meta charset="utf-8">
+	<title>Threejs Portfolio</title>
+	<link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+	<canvas class="threejs"></canvas>
+	<script type="module" src="./index.js"></script>
+	<div class="overlay"></div>
+	<h1 class="loading">Loading Experience... <span id="progressPercentage"></span>%</h1>
+	<button class="start">START</button>
+
+	<div id="myModal" class="modal">
+		<div class="modal-wrapper">
+			<div class="modal-content">
+				<h1 id="modalTitle">Modal Title</h1>
+				<p id="modalDescription">Modal Description</p>
+			</div>
+			<span class="close">Close</span>
+		</div>
+	</div>
+
+</body>
+
+</html>
