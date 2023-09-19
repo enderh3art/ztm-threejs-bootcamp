@@ -128,3 +128,9 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# npm package lock file
+package-lock.json
+
+# MAC OS Generated files
+**/.DS_Store
