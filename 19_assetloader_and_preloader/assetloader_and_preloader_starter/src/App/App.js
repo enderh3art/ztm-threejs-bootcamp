@@ -12,11 +12,18 @@ export default class App{
         if(instance) return instance
         instance = this
 
+        // threejs elements
         this.canvas = document.querySelector("canvas.threejs");
         this.scene = new THREE.Scene()
+        
+        // World
+        this.world = new World()
+
+        // Camera and Renderer
         this.camera = new Camera()
         this.renderer = new Renderer()
-        this.world = new World()
+
+        // extra utils
         this.loop = new Loop()
         this.resize = new Resize()
     }
