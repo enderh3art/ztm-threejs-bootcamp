@@ -1,0 +1,38 @@
+#root .App {
+  margin: 0;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Controls Depiction */
+#controls {
+  min-width: 100px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  text-align: left;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Amatic SC";
+  color: white;
+  font-size: 2rem;
+  padding: 1.5rem;
+}
+
+#controls .title {
+  text-decoration: underline;
+  margin-bottom: 10px;
+}
+
+#controls .directions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.directions div {
+  margin: 2px 0; /* Adjust spacing between directions */
+}

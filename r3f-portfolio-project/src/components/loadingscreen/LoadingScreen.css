@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css?family=Amatic+SC");
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.loading {
+  color: white; /* Make the text white so it stands out against the overlay */
+  margin-bottom: 20px; /* Add some space between the text and the progress bar */
+  font-size: 2rem;
+  font-family: "Amatic SC";
+  color: white;
+}
