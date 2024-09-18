@@ -16,10 +16,10 @@ export default class Environment {
   }
 
   loadEnvironment() {
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1);
     this.scene.add(ambientLight);
 
-    this.directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+    this.directionalLight = new THREE.DirectionalLight(0xffffff, 1);
     this.directionalLight.position.set(1, 1, 1);
     this.directionalLight.castShadow = true;
     this.scene.add(this.directionalLight);

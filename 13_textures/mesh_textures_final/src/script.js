@@ -18,6 +18,7 @@ geometry.setAttribute('uv2', uv2Geometry)
 
 // load the grass textures
 const grassAlbedo = textureLoader.load('/textures/whispy-grass-meadow-bl/wispy-grass-meadow_albedo.png')
+grassAlbedo.colorSpace = THREE.SRGBColorSpace
 const grassAo = textureLoader.load('/textures/whispy-grass-meadow-bl/wispy-grass-meadow_ao.png')
 const grassHeight = textureLoader.load('/textures/whispy-grass-meadow-bl/wispy-grass-meadow_height.png')
 const grassMetallic = textureLoader.load('/textures/whispy-grass-meadow-bl/wispy-grass-meadow_metallic.png')
@@ -26,6 +27,7 @@ const grassRoughness = textureLoader.load('/textures/whispy-grass-meadow-bl/wisp
 
 // load the boulder textures
 const boulderAlbedo = textureLoader.load('/textures/badlands-boulders-bl/badlands-boulders_albedo.png')
+boulderAlbedo.colorSpace = THREE.SRGBColorSpace
 const boulderAo = textureLoader.load('/textures/badlands-boulders-bl/badlands-boulders_ao.png')
 const boulderHeight = textureLoader.load('/textures/badlands-boulders-bl/badlands-boulders_height.png')
 const boulderMetallic = textureLoader.load('/textures/badlands-boulders-bl/badlands-boulders_metallic.png')
@@ -34,6 +36,7 @@ const boulderRoughness = textureLoader.load('/textures/badlands-boulders-bl/badl
 
 // load the space cruiser textures
 const spaceCruiserAlbedo = textureLoader.load('/textures/space-cruiser-panels2-bl/space-cruiser-panels2_albedo.png')
+spaceCruiserAlbedo.colorSpace = THREE.SRGBColorSpace
 const spaceCruiserAo = textureLoader.load('/textures/space-cruiser-panels2-bl/space-cruiser-panels2_ao.png')
 const spaceCruiserHeight = textureLoader.load('/textures/space-cruiser-panels2-bl/space-cruiser-panels2_height.png')
 const spaceCruiserMetallic = textureLoader.load('/textures/space-cruiser-panels2-bl/space-cruiser-panels2_metallic.png')
@@ -55,10 +58,10 @@ grassMaterial.displacementMap = grassHeight
 grassMaterial.displacementScale = 0.1
 grassMaterial.aoMap = grassAo
 
-grassPane.addInput(grassMaterial, 'metalness', { min: 0, max: 1, step: 0.01 })
-grassPane.addInput(grassMaterial, 'roughness', { min: 0, max: 1, step: 0.01 })
-grassPane.addInput(grassMaterial, 'displacementScale', { min: 0, max: 1, step: 0.01 })
-grassPane.addInput(grassMaterial, 'aoMapIntensity', { min: 0, max: 1, step: 0.01 })
+grassPane.addBinding(grassMaterial, 'metalness', { min: 0, max: 1, step: 0.01 })
+grassPane.addBinding(grassMaterial, 'roughness', { min: 0, max: 1, step: 0.01 })
+grassPane.addBinding(grassMaterial, 'displacementScale', { min: 0, max: 1, step: 0.01 })
+grassPane.addBinding(grassMaterial, 'aoMapIntensity', { min: 0, max: 1, step: 0.01 })
 
 // boulder material
 const boulderPane = pane.addFolder({
@@ -75,10 +78,10 @@ boulderMaterial.displacementMap = boulderHeight
 boulderMaterial.displacementScale = 0.1
 boulderMaterial.aoMap = boulderAo
 
-boulderPane.addInput(boulderMaterial, 'metalness', { min: 0, max: 1, step: 0.01 })
-boulderPane.addInput(boulderMaterial, 'roughness', { min: 0, max: 1, step: 0.01 })
-boulderPane.addInput(boulderMaterial, 'displacementScale', { min: 0, max: 1, step: 0.01 })
-boulderPane.addInput(boulderMaterial, 'aoMapIntensity', { min: 0, max: 1, step: 0.01 })
+boulderPane.addBinding(boulderMaterial, 'metalness', { min: 0, max: 1, step: 0.01 })
+boulderPane.addBinding(boulderMaterial, 'roughness', { min: 0, max: 1, step: 0.01 })
+boulderPane.addBinding(boulderMaterial, 'displacementScale', { min: 0, max: 1, step: 0.01 })
+boulderPane.addBinding(boulderMaterial, 'aoMapIntensity', { min: 0, max: 1, step: 0.01 })
 
 // space cruiser material
 const spaceCruiserPane = pane.addFolder({
@@ -95,10 +98,10 @@ spaceCruiserMaterial.displacementMap = spaceCruiserHeight
 spaceCruiserMaterial.displacementScale = 0.1
 spaceCruiserMaterial.aoMap = spaceCruiserAo
 
-spaceCruiserPane.addInput(spaceCruiserMaterial, 'metalness', { min: 0, max: 1, step: 0.01 })
-spaceCruiserPane.addInput(spaceCruiserMaterial, 'roughness', { min: 0, max: 1, step: 0.01 })
-spaceCruiserPane.addInput(spaceCruiserMaterial, 'displacementScale', { min: 0, max: 1, step: 0.01 })
-spaceCruiserPane.addInput(spaceCruiserMaterial, 'aoMapIntensity', { min: 0, max: 1, step: 0.01 })
+spaceCruiserPane.addBinding(spaceCruiserMaterial, 'metalness', { min: 0, max: 1, step: 0.01 })
+spaceCruiserPane.addBinding(spaceCruiserMaterial, 'roughness', { min: 0, max: 1, step: 0.01 })
+spaceCruiserPane.addBinding(spaceCruiserMaterial, 'displacementScale', { min: 0, max: 1, step: 0.01 })
+spaceCruiserPane.addBinding(spaceCruiserMaterial, 'aoMapIntensity', { min: 0, max: 1, step: 0.01 })
 
 // intialize a group
 const group = new THREE.Group()
@@ -124,10 +127,10 @@ group.add(grass, boulder, spaceCruiser )
 scene.add(group);
 
 // initialize the light
-const light = new THREE.AmbientLight(0xffffff, 0.4);
+const light = new THREE.AmbientLight(0xffffff, 1);
 scene.add(light);
 
-const pointLight = new THREE.PointLight(0xffffff, 1.2);
+const pointLight = new THREE.PointLight(0xffffff, 200);
 pointLight.position.set(5, 5, 5);
 scene.add(pointLight);
 

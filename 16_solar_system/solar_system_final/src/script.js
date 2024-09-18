@@ -15,11 +15,17 @@ cubeTextureLoader.setPath('/textures/cubeMap/')
 
 // adding textures
 const sunTexture = textureLoader.load("/textures/2k_sun.jpg");
+sunTexture.colorSpace = THREE.SRGBColorSpace  
 const mercuryTexture = textureLoader.load("/textures/2k_mercury.jpg");
+mercuryTexture.colorSpace = THREE.SRGBColorSpace
 const venusTexture = textureLoader.load("/textures/2k_venus_surface.jpg");
+venusTexture.colorSpace = THREE.SRGBColorSpace
 const earthTexture = textureLoader.load("/textures/2k_earth_daymap.jpg");
+earthTexture.colorSpace = THREE.SRGBColorSpace
 const marsTexture = textureLoader.load("/textures/2k_mars.jpg");
+marsTexture.colorSpace = THREE.SRGBColorSpace
 const moonTexture = textureLoader.load("/textures/2k_moon.jpg");
+moonTexture.colorSpace = THREE.SRGBColorSpace
 
 const backgroundCubemap = cubeTextureLoader
 .load( [
@@ -153,13 +159,13 @@ console.log(planetMeshes)
 // add lights
 const ambientLight = new THREE.AmbientLight(
   0xffffff,
-  0.1
+  0.3
 )
 scene.add(ambientLight)
 
 const pointLight = new THREE.PointLight(
   0xffffff,
-  2
+  1000
 )
 scene.add(pointLight)
  

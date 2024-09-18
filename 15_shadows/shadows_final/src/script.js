@@ -7,7 +7,7 @@ const scene = new THREE.Scene();
 const material = new THREE.MeshStandardMaterial({
   color: 0xffffff,
   metalness: 0.0,
-  roughness: 0.,
+  roughness: 0,
 });
 
 const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
@@ -35,7 +35,7 @@ circle.receiveShadow = true;
 
 scene.add(box, sphere, torusKnot, circle);
 
-const directionalLight = new THREE.DirectionalLight(0xff0000, 0.8);
+const directionalLight = new THREE.DirectionalLight(0xff0000, 1);
 directionalLight.position.set(3, 10, 15);
 scene.add(directionalLight);
 // const directionalLightHelper = new THREE.DirectionalLightHelper(
@@ -43,55 +43,54 @@ scene.add(directionalLight);
 // );
 // scene.add(directionalLightHelper);
 directionalLight.castShadow = true;
-directionalLight.shadow.mapSize.width = 1024
-directionalLight.shadow.mapSize.height = 1024
-directionalLight.shadow.radius = 10
+directionalLight.shadow.mapSize.width = 1024;
+directionalLight.shadow.mapSize.height = 1024;
+directionalLight.shadow.radius = 10;
 
-directionalLight.shadow.camera.left = -0.1
-directionalLight.shadow.camera.right = 0.1
-directionalLight.shadow.camera.top = 0.1
-directionalLight.shadow.camera.bottom = -0.1
+directionalLight.shadow.camera.left = -0.1;
+directionalLight.shadow.camera.right = 0.1;
+directionalLight.shadow.camera.top = 0.1;
+directionalLight.shadow.camera.bottom = -0.1;
 
 const directionalLightCameraHelper = new THREE.CameraHelper(
   directionalLight.shadow.camera
-)
-scene.add(directionalLightCameraHelper)
-directionalLightCameraHelper.visible = false
+);
+scene.add(directionalLightCameraHelper);
+directionalLightCameraHelper.visible = false;
 
-const pointLight = new THREE.PointLight(0x00ff00, 0.6);
+const pointLight = new THREE.PointLight(0x00ff00, 20);
 pointLight.position.set(-3, 2, -3);
 scene.add(pointLight);
-pointLight.castShadow = true
-pointLight.shadow.mapSize.width = 1024
-pointLight.shadow.mapSize.height = 1024
-pointLight.shadow.radius = 10
+pointLight.castShadow = true;
+pointLight.shadow.mapSize.width = 1024;
+pointLight.shadow.mapSize.height = 1024;
+pointLight.shadow.radius = 10;
+
 
 // pointLight.shadow.camera.near = 10
 // pointLight.shadow.camera.far = 30
 
 const pointLightHelper = new THREE.PointLightHelper(pointLight);
-scene.add(pointLightHelper);
+// scene.add(pointLightHelper);
 
-const spotLight = new THREE.SpotLight(0x0000ff, 8, null, Math.PI * 0.1);
+const spotLight = new THREE.SpotLight(0x0000ff, 20, null, Math.PI * 0.1);
 spotLight.position.set(8, 4, 4);
 spotLight.target.position.set(0, -1, 0);
 scene.add(spotLight);
 // const spotLightHelper = new THREE.SpotLightHelper(spotLight);
 // scene.add(spotLightHelper);
-spotLight.castShadow = true
-spotLight.shadow.mapSize.width = 1024
-spotLight.shadow.mapSize.height = 1024
-spotLight.shadow.radius = 10
+spotLight.castShadow = true;
+spotLight.shadow.mapSize.width = 1024;
+spotLight.shadow.mapSize.height = 1024;
+spotLight.shadow.radius = 10;
 
-spotLight.shadow.camera.near = 1
-spotLight.shadow.camera.far = 100
-spotLight.shadow.camera.fov = 30
+spotLight.shadow.camera.near = 1;
+spotLight.shadow.camera.far = 100;
+spotLight.shadow.camera.fov = 30;
 
-const spotLightCameraHelper = new THREE.CameraHelper(
-  spotLight.shadow.camera
-)
-scene.add(spotLightCameraHelper)
-spotLightCameraHelper.visible = false
+const spotLightCameraHelper = new THREE.CameraHelper(spotLight.shadow.camera);
+scene.add(spotLightCameraHelper);
+spotLightCameraHelper.visible = false;
 
 const camera = new THREE.PerspectiveCamera(
   35,
@@ -107,8 +106,7 @@ const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.shadowMap.enabled = true;
-renderer.shadowMap.type = THREE.VSMShadowMap
-;
+renderer.shadowMap.type = THREE.VSMShadowMap;
 
 const controls = new OrbitControls(camera, canvas);
 controls.enableDamping = true;

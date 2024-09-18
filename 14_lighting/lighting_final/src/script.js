@@ -14,9 +14,9 @@ const materialFolder = pane.addFolder({
   title: "Material",
   expanded: true,
 });
-materialFolder.addInput(material, "metalness", { min: 0, max: 1, step: 0.01 });
-materialFolder.addInput(material, "roughness", { min: 0, max: 1, step: 0.01 });
-materialFolder.addInput(material, "color", { color: { type: "float" } });
+materialFolder.addBinding(material, "metalness", { min: 0, max: 1, step: 0.01 });
+materialFolder.addBinding(material, "roughness", { min: 0, max: 1, step: 0.01 });
+materialFolder.addBinding(material, "color", { color: { type: "float" } });
 
 const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
 const sphereGeometry = new THREE.SphereGeometry(0.75, 8, 8);
@@ -54,12 +54,12 @@ const ambientLightFolder = pane.addFolder({
   title: "Ambient Light",
   expanded: true,
 });
-ambientLightFolder.addInput(ambientLight, "intensity", {
+ambientLightFolder.addBinding(ambientLight, "intensity", {
   min: 0,
   max: 1,
   step: 0.01,
 });
-ambientLightFolder.addInput(ambientLight, "color", {
+ambientLightFolder.addBinding(ambientLight, "color", {
   color: { type: "float" },
 });
 
@@ -78,15 +78,15 @@ const hemisphericLightFolder = pane.addFolder({
   title: "Hemispheric Light",
   expanded: true,
 });
-hemisphericLightFolder.addInput(hemisphericLight, "intensity", {
+hemisphericLightFolder.addBinding(hemisphericLight, "intensity", {
   min: 0,
   max: 1,
   step: 0.01,
 });
-hemisphericLightFolder.addInput(hemisphericLight, "color", {
+hemisphericLightFolder.addBinding(hemisphericLight, "color", {
   color: { type: "float" },
 });
-hemisphericLightFolder.addInput(hemisphericLight, "groundColor", {
+hemisphericLightFolder.addBinding(hemisphericLight, "groundColor", {
   color: { type: "float" },
 });
 
@@ -101,18 +101,18 @@ const directionalLightFolder = pane.addFolder({
   title: "Directional Light",
   expanded: true,
 });
-directionalLightFolder.addInput(directionalLight, "intensity", {
+directionalLightFolder.addBinding(directionalLight, "intensity", {
   min: 0,
   max: 1,
   step: 0.01,
 });
-directionalLightFolder.addInput(directionalLight, "color", {
+directionalLightFolder.addBinding(directionalLight, "color", {
   color: {
     type: "float",
   },
 });
 
-const pointLight = new THREE.PointLight(0xff810a, 0.5);
+const pointLight = new THREE.PointLight(0xff810a, 3);
 pointLight.position.set(-3, 2, -3);
 scene.add(pointLight);
 const pointLightHelper = new THREE.PointLightHelper(pointLight);
@@ -121,12 +121,12 @@ const pointLightFolder = pane.addFolder({
   title: "Point Light",
   expanded: true,
 });
-pointLightFolder.addInput(pointLight, "intensity", {
+pointLightFolder.addBinding(pointLight, "intensity", {
   min: 0,
-  max: 1,
+  max: 5,
   step: 0.01,
 });
-pointLightFolder.addInput(pointLight, "color", { color: { type: "float" } });
+pointLightFolder.addBinding(pointLight, "color", { color: { type: "float" } });
 
 const rectAreaLight = new THREE.RectAreaLight(0xff0000, 0.5, 10, 10);
 rectAreaLight.position.set(-10, 5, 5);
@@ -138,12 +138,12 @@ const rectAreaLightFolder = pane.addFolder({
   title: "Rect Area Light",
   expanded: true,
 });
-rectAreaLightFolder.addInput(rectAreaLight, "intensity", {
+rectAreaLightFolder.addBinding(rectAreaLight, "intensity", {
   min: 0,
   max: 1,
   step: 0.01,
 });
-rectAreaLightFolder.addInput(rectAreaLight, "color", {
+rectAreaLightFolder.addBinding(rectAreaLight, "color", {
   color: { type: "float" },
 });
 
@@ -154,12 +154,12 @@ scene.add(spotLight);
 const spotLightHelper = new THREE.SpotLightHelper(spotLight);
 scene.add(spotLightHelper);
 const spotLightFolder = pane.addFolder({ title: "Spot Light", expanded: true });
-spotLightFolder.addInput(spotLight, "intensity", {
+spotLightFolder.addBinding(spotLight, "intensity", {
   min: 0,
   max: 1,
   step: 0.01,
 });
-spotLightFolder.addInput(spotLight, "color", { color: { type: "float" } });
+spotLightFolder.addBinding(spotLight, "color", { color: { type: "float" } });
 
 const camera = new THREE.PerspectiveCamera(
   35,

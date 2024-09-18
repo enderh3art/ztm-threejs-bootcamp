@@ -31,7 +31,7 @@ circle.rotation.x = -Math.PI / 2;
 
 scene.add(box, sphere, torusKnot, circle);
 
-const directionalLight = new THREE.DirectionalLight(0xff0000, 0.8);
+const directionalLight = new THREE.DirectionalLight(0xff0000, 1);
 directionalLight.position.set(3, 10, 15);
 scene.add(directionalLight);
 const directionalLightHelper = new THREE.DirectionalLightHelper(
@@ -39,13 +39,13 @@ const directionalLightHelper = new THREE.DirectionalLightHelper(
 );
 scene.add(directionalLightHelper);
 
-const pointLight = new THREE.PointLight(0x00ff00, 0.6);
+const pointLight = new THREE.PointLight(0x00ff00, 20);
 pointLight.position.set(-3, 2, -3);
 scene.add(pointLight);
 const pointLightHelper = new THREE.PointLightHelper(pointLight);
 scene.add(pointLightHelper);
 
-const spotLight = new THREE.SpotLight(0x0000ff, 1, 30, Math.PI * 0.1);
+const spotLight = new THREE.SpotLight(0x0000ff, 20, 30, Math.PI * 0.1);
 spotLight.position.set(8, 4, 4);
 spotLight.target.position.set(0, -1, 0);
 scene.add(spotLight);
